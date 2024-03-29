@@ -33,3 +33,4 @@ The buyer receives the NFT without requiring wallet signatures or gas funds.
 
 - Support: [Join the Discord](https://discord.gg/thirdweb)
 - Twitter: [@thirdweb](https://twitter.com/thirdweb)
+# fiat-01
