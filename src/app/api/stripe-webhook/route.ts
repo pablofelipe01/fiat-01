@@ -64,21 +64,25 @@ const handleChargeSucceeded = async (charge: Stripe.Charge) => {
     url: ENGINE_URL,
     accessToken: ENGINE_ACCESS_TOKEN,
   });
-  await engine.erc1155.mintTo(
-    "mumbai",
+  await engine.erc20.mintTo(
+    "polygon",
     NEXT_PUBLIC_NFT_CONTRACT_ADDRESS,
     BACKEND_WALLET_ADDRESS,
     {
-      receiver: buyerWalletAddress,
-      metadataWithSupply: {
-        metadata: {
-          name: "Example NFT",
-          description: "Created with thirdweb Engine",
-          image:
-            "ipfs://QmciR3WLJsf2BgzTSjbG5zCxsrEQ8PqsHK7JWGWsDSNo46/nft.png",
-        },
-        supply: "1",
-      },
+      toAddress: buyerWalletAddress,
+      // metadataWithSupply: {
+      //   metadata: {
+      //     name: "Social Token",
+      //     description: "Created with thirdweb Engine",
+      //     image:
+      //       "ipfs://QmXJjoo9qc29gF7PNBeUZ65yaTjNpqEuk6fdvHUE6oWmmn/TST_NFTT.png",
+      //   },
+      // },
+      amount: "1",
     }
   );
 };
+
+
+// "recipient": "0x3EcDBF3B911d0e9052b64850693888b008e18373",
+//   "amount": "0.1"

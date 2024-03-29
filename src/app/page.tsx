@@ -14,14 +14,36 @@ import {
   useContractMetadata,
   MediaRenderer,
   ThirdwebProvider,
+  metamaskWallet,
+  coinbaseWallet,
+  walletConnect,
+  localWallet,
+  embeddedWallet,
 } from "@thirdweb-dev/react";
 import React, { useEffect, useState } from "react";
 
 export default function Home() {
   return (
     <ThirdwebProvider
-      activeChain="mumbai"
+      activeChain="polygon"
       clientId={process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID}
+      supportedWallets={[
+        coinbaseWallet({ recommended: true }),
+        metamaskWallet(),
+        walletConnect(),
+        localWallet(),
+        embeddedWallet({
+          auth: {
+            options: [
+              "email",
+              "google",
+              "apple",
+              "facebook",
+            ],
+          },
+        }),
+      ]}
+      
     >
       <PurchasePage />
     </ThirdwebProvider>
@@ -42,7 +64,7 @@ function PurchasePage() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        buyerWalletAddress: address,
+      buyerWalletAddress: address,
       }),
     });
     if (resp.ok) {
@@ -66,14 +88,14 @@ function PurchasePage() {
             className="rounded-lg"
             src={
               contractMetadata.image ||
-              "ipfs://QmciR3WLJsf2BgzTSjbG5zCxsrEQ8PqsHK7JWGWsDSNo46/nft.png"
+              "ipfs://QmXJjoo9qc29gF7PNBeUZ65yaTjNpqEuk6fdvHUE6oWmmn/TST_NFTT.png"
             }
           />
 
           <div className="flex flex-col gap-2">
             <h2 className="text-xl font-extrabold">{contractMetadata.name}</h2>
             <p className="text-gray-500">
-              {contractMetadata.description || "A description of your NFT."}
+              {contractMetadata.description || "A description of your Token."}
             </p>
           </div>
 
@@ -128,7 +150,7 @@ const CreditCardForm = () => {
       }
       if (paymentIntent.status === "succeeded") {
         alert(
-          "Payment success. The NFT will be delivered to your wallet shortly."
+          "Payment success. The Token will be delivered to your wallet shortly."
         );
         setIsCompleted(true);
       } else {

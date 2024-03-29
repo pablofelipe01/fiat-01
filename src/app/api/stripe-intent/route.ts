@@ -13,14 +13,14 @@ export async function POST(req: Request) {
     throw 'Request is missing "buyerWalletAddress".';
   }
 
-  // Create a Stripe payment intent for $100 USD.
+  // Create a Stripe payment intent for $1 USD.
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: "2023-10-16",
   });
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: 100_00,
+    amount: 1_00,
     currency: "usd",
-    description: "Example NFT delivered by thirdweb Engine",
+    description: "Example Token delivered by thirdweb Engine",
     payment_method_types: ["card"],
     metadata: { buyerWalletAddress },
   });

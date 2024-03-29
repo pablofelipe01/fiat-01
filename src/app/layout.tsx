@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Fiat NFT checkout | thirdweb Engine",
+  title: "Fiat checkout | thirdweb Engine",
 };
 
 export default function RootLayout({
