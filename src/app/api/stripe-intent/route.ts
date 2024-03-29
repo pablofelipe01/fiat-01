@@ -5,7 +5,7 @@ const { STRIPE_SECRET_KEY } = process.env;
 
 export async function POST(req: Request) {
   if (!STRIPE_SECRET_KEY) {
-    throw 'Server misconfigured. Did you forget to add a ".env.local" file?';
+    throw 'Server misconfigured. Did you forget to add a ".env" file?';
   }
 
   const { buyerWalletAddress } = await req.json();
