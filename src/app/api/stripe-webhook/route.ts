@@ -51,7 +51,7 @@ const handleChargeSucceeded = async (charge: Stripe.Charge) => {
     !NEXT_PUBLIC_NFT_CONTRACT_ADDRESS ||
     !BACKEND_WALLET_ADDRESS
   ) {
-    throw 'Server misconfigured. Did you forget to add a ".env.local" file?';
+    throw 'Server misconfigured. Did you forget to add a ".env" file?';
   }
 
   const { buyerWalletAddress } = charge.metadata;

@@ -74,7 +74,7 @@ function PurchasePage() {
   };
 
   if (!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
-    throw 'Did you forget to add a ".env.local" file?';
+    throw 'Did you forget to add a ".env" file?';
   }
   const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
