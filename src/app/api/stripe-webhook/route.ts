@@ -13,7 +13,7 @@ const {
   ENGINE_ACCESS_TOKEN,
   NEXT_PUBLIC_NFT_CONTRACT_ADDRESS,
   BACKEND_WALLET_ADDRESS,
-} = process.env;
+} = process.env.local;
 
 export async function POST(req: NextRequest) {
   if (!WEBHOOK_SECRET_KEY) {
