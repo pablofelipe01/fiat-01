@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <ThirdwebProvider
       activeChain="polygon"
-      clientId={process.env.local.NEXT_PUBLIC_THIRDWEB_CLIENT_ID}
+      clientId={process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID}
       supportedWallets={[
         coinbaseWallet({ recommended: true }),
         metamaskWallet(),
@@ -76,7 +76,7 @@ function PurchasePage() {
   if (!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
     throw 'Did you forget to add a ".env.local" file?';
   }
-  const stripe = loadStripe(process.env.local.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+  const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
   return (
     <main className="flex flex-col gap-y-8 items-center p-12">

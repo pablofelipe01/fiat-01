@@ -13,11 +13,11 @@ const {
   ENGINE_ACCESS_TOKEN,
   NEXT_PUBLIC_NFT_CONTRACT_ADDRESS,
   BACKEND_WALLET_ADDRESS,
-} = process.env.local;
+} = process.env;
 
 export async function POST(req: NextRequest) {
   if (!WEBHOOK_SECRET_KEY) {
-    throw 'Server misconfigured. Did you forget to add a ".env.local" file?';
+    throw 'Server misconfigured. Did you forget to add a ".env" file?';
   }
 
   // Validate the Stripe webhook signature.
