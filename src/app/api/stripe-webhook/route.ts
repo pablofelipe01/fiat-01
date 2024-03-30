@@ -64,7 +64,7 @@ const handleChargeSucceeded = async (charge: Stripe.Charge) => {
     url: ENGINE_URL,
     accessToken: ENGINE_ACCESS_TOKEN,
   });
-  await engine.erc20.mintTo(
+  await engine.erc20.transfer(
     "polygon",
     NEXT_PUBLIC_NFT_CONTRACT_ADDRESS,
     BACKEND_WALLET_ADDRESS,
