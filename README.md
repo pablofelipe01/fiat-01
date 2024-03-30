@@ -1,4 +1,4 @@
-# Fiat NFT checkout with thirdweb Engine
+# Fiat Token checkout with thirdweb Engine
 
 This guide demonstrates using thirdweb Engine to sell NFTs with credit card.
 
